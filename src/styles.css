@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@media (prefers-color-scheme: dark) {
+	/* CSS when dark mode is activated */
+	body {
+		background-color: #323232;
+		color: #ccc;
+	}
+}
