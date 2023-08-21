@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { environment as env } from 'src/environments/environment';
+import { SharedModule } from './shared';
 
 @NgModule({
 	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
+		SharedModule,
 		HttpClientModule,
 		AuthModule.forRoot({
 			...env.auth0,
