@@ -18,6 +18,12 @@ const routes: Routes = [
 		canActivate: [AuthGuard],
 	},
 	{
+		path: 'goals',
+		loadChildren: () =>
+			import('./../app/features/goals/goals.module').then((m) => m.GoalsModule),
+		canActivate: [AuthGuard],
+	},
+	{
 		path: 'callback',
 		loadChildren: () =>
 			import('./../app/features/callback/callback.module').then(
