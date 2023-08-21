@@ -1,3 +1,18 @@
 <app-page-layout>
-	<p>goals works!</p>
+	<table style="width: 100%">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>distance</th>
+				<th>time</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let goal of goals">
+				<th>{{ goal.id }}</th>
+				<td>{{ goal.distance }}</td>
+				<td>{{ goal.time }}</td>
+			</tr>
+		</tbody>
+	</table>
 </app-page-layout>
