@@ -24,13 +24,6 @@ const routes: Routes = [
 		canActivate: [AuthGuard],
 	},
 	{
-		path: 'callback',
-		loadChildren: () =>
-			import('./../app/features/callback/callback.module').then(
-				(m) => m.CallbackModule,
-			),
-	},
-	{
 		path: '**',
 		loadChildren: () =>
 			import('./../app/features/not-found/not-found.module').then(
