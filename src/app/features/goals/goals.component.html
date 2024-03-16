@@ -2,17 +2,18 @@
 	<table style="width: 100%">
 		<thead>
 			<tr>
-				<th>id</th>
-				<th>distance</th>
-				<th>time</th>
+				<th style="text-align: left">ID</th>
+				<th style="text-align: left">Distance</th>
+				<th style="text-align: left">Time</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr *ngFor="let goal of goals">
-				<th>{{ goal.id }}</th>
-				<td>{{ goal.distance }}</td>
-				<td>{{ goal.time }}</td>
+				<th style="text-align: left">{{ goal.id }}</th>
+				<td style="text-align: left">{{ goal.distance }}</td>
+				<td style="text-align: left">{{ goal.time }}</td>
 			</tr>
 		</tbody>
 	</table>
+	<app-goal-form></app-goal-form>
 </app-page-layout>

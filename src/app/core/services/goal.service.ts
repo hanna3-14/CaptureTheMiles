@@ -13,4 +13,10 @@ export class GoalService {
 	getAll(): Observable<Goal[]> {
 		return this.httpClient.get<Goal[]>(`${env.api.serverUrl}/api/data/goals`);
 	}
+
+	addGoal(goal: Goal): Observable<Goal> {
+		return this.httpClient.post<Goal>(
+			`${env.api.serverUrl}/api/data/goals`, goal
+		);
+	}
 }

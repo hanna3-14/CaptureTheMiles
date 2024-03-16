@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { GoalsComponent } from './goals.component';
 import { SharedModule } from 'src/app/shared';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { GoalFormComponent } from '../goal-form/goal-form.component';
 
 @NgModule({
-	declarations: [GoalsComponent],
+	declarations: [GoalsComponent, GoalFormComponent],
 	imports: [
 		CommonModule,
 		SharedModule,
@@ -15,6 +17,7 @@ import { RouterModule } from '@angular/router';
 				component: GoalsComponent,
 			},
 		]),
+		FormsModule,
 	],
 })
 export class GoalsModule {}
