@@ -14,13 +14,12 @@ export class ResultFormComponent {
 
 	constructor(public resultService: ResultService) {}
 
-	saveNewResult(){
+	saveNewResult() {
 		this.resultService
 			.addResult(this.result)
-			.subscribe(result => this.results.push(result))
+			.subscribe((result) => this.results.push(result));
 
 		// reload the whole page to show the new result
-		window.location.reload()
+		window.location.reload();
 	}
-
 }

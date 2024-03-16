@@ -10,18 +10,17 @@ export class GoalFormComponent {
 	@Input()
 	distances: String[] = [];
 
-	goal = new Goal
+	goal = new Goal();
 	goals: Goal[] = [];
 
 	constructor(public goalService: GoalService) {}
 
-	saveNewGoal(){
+	saveNewGoal() {
 		this.goalService
 			.addGoal(this.goal)
-			.subscribe(goal => this.goals.push(goal))
+			.subscribe((goal) => this.goals.push(goal));
 
 		// reload the whole page to show the new goal
-		window.location.reload()
+		window.location.reload();
 	}
-
 }

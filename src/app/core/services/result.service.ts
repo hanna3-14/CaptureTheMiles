@@ -18,7 +18,8 @@ export class ResultService {
 
 	addResult(result: Result): Observable<Result> {
 		return this.httpClient.post<Result>(
-			`${env.api.serverUrl}/api/data/results`, result
+			`${env.api.serverUrl}/api/data/results`,
+			result,
 		);
 	}
 
@@ -32,8 +33,8 @@ export class ResultService {
 	}
 
 	deleteResult(id: number) {
-		this.httpClient.delete(
-			`${env.api.serverUrl}/api/data/result/${id}`
-		).subscribe();
+		this.httpClient
+			.delete(`${env.api.serverUrl}/api/data/result/${id}`)
+			.subscribe();
 	}
 }

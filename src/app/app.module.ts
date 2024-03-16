@@ -17,9 +17,7 @@ import { SharedModule } from './shared';
 		AuthModule.forRoot({
 			...env.auth0,
 			httpInterceptor: {
-				allowedList: [
-					`${env.api.serverUrl}/api/data/*`,
-				],
+				allowedList: [`${env.api.serverUrl}/api/data/*`],
 			},
 		}),
 	],

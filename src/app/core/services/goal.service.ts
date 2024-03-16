@@ -16,7 +16,8 @@ export class GoalService {
 
 	addGoal(goal: Goal): Observable<Goal> {
 		return this.httpClient.post<Goal>(
-			`${env.api.serverUrl}/api/data/goals`, goal
+			`${env.api.serverUrl}/api/data/goals`,
+			goal,
 		);
 	}
 
@@ -26,9 +27,9 @@ export class GoalService {
 			.subscribe();
 	}
 
-	deleteGoal(id: number){
-		this.httpClient.delete(
-			`${env.api.serverUrl}/api/data/goal/${id}`
-		).subscribe();
+	deleteGoal(id: number) {
+		this.httpClient
+			.delete(`${env.api.serverUrl}/api/data/goal/${id}`)
+			.subscribe();
 	}
 }

@@ -36,6 +36,6 @@ export class ResultsComponent implements OnInit {
 
 	removeResult(id: number) {
 		this.resultService.deleteResult(id);
-		window.location.reload()
+		window.location.reload();
 	}
 }

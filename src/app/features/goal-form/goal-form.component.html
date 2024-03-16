@@ -3,13 +3,15 @@
 <div>
 	<label>Distance</label>
 	<select required [(ngModel)]="goal.distance">
-		<option *ngFor="let distance of distances" [value]="distance">{{distance}}</option>]
+		<option *ngFor="let distance of distances" [value]="distance">
+			{{ distance }}
+		</option>
 	</select>
 </div>
 
 <div>
 	<label>Time</label>
-	<input [(ngModel)]="goal.time">
+	<input [(ngModel)]="goal.time" />
 </div>
 
 <button (click)="saveNewGoal()">save</button>

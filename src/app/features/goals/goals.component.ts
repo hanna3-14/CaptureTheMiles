@@ -35,7 +35,7 @@ export class GoalsComponent implements OnInit {
 	}
 
 	removeGoal(id: number) {
-		this.goalService.deleteGoal(id)
-		window.location.reload()
+		this.goalService.deleteGoal(id);
+		window.location.reload();
 	}
 }
