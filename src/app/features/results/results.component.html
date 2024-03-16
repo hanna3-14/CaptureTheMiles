@@ -2,21 +2,38 @@
 	<table style="width: 100%">
 		<thead>
 			<tr>
-				<th>id</th>
-				<th>name</th>
-				<th>distance</th>
-				<th>time (net)</th>
-				<th>place (total)</th>
+				<th style="text-align: left">ID</th>
+				<th style="text-align: left">Event Name</th>
+				<th style="text-align: left">Distance</th>
+				<th style="text-align: left">Time (gross)</th>
+				<th style="text-align: left">Time (net)</th>
+				<th style="text-align: left">Category</th>
+				<th style="text-align: left">Agegroup</th>
+				<th style="text-align: left">Place (total)</th>
+				<th style="text-align: left">Place (category)</th>
+				<th style="text-align: left">Place (agegroup)</th>
+				<th style="text-align: left">Finisher (total)</th>
+				<th style="text-align: left">Finisher (category)</th>
+				<th style="text-align: left">Finisher (agegroup)</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let result of results">
-				<th>{{ result.id }}</th>
+			<tr *ngFor="let result of results; let i = index">
+				<td>{{ result.id }}</td>
 				<td>{{ result.name }}</td>
 				<td>{{ result.distance }}</td>
-				<td>{{ result.timeNet }}</td>
+				<td>{{ result.timeGross }}</td>
+				<td>{{ result.timeNet}}</td>
+				<td>{{ result.category }}</td>
+				<td>{{ result.agegroup }}</td>
 				<td>{{ result.placeTotal }}</td>
+				<td>{{ result.placeCategory }}</td>
+				<td>{{ result.placeAgegroup }}</td>
+				<td>{{ result.finisherTotal }}</td>
+				<td>{{ result.finisherCategory }}</td>
+				<td>{{ result.finisherAgegroup }}</td>
 			</tr>
 		</tbody>
 	</table>
+	<app-result-form></app-result-form>	
 </app-page-layout>

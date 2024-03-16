@@ -2,14 +2,14 @@ export class Result {
 	id?: number;
 	name = '';
 	distance = '';
-	timeGross = '';
+	timeGross? = '';
 	timeNet = '';
-	category = '';
-	agegroup = '';
-	placeTotal = 0;
-	placeCategory = 0;
-	placeAgegroup = 0;
-	finisherTotal = 0;
-	finisherCategory = 0;
-	finisherAgegroup = 0;
+	category? = '';
+	agegroup? = '';
+	placeTotal?: number;
+	placeCategory?: number;
+	placeAgegroup?: number;
+	finisherTotal?: number;
+	finisherCategory?: number;
+	finisherAgegroup?: number;
 }

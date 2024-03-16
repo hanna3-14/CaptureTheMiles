@@ -15,4 +15,10 @@ export class ResultService {
 			`${env.api.serverUrl}/api/data/results`,
 		);
 	}
+
+	addResult(result: Result): Observable<Result> {
+		return this.httpClient.post<Result>(
+			`${env.api.serverUrl}/api/data/results`, result
+		);
+	}
 }

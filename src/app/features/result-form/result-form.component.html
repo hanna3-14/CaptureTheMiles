@@ -1,0 +1,65 @@
+<h2>add new result</h2>
+
+<div>
+	<label>Event Name</label>
+	<input required [(ngModel)]="result.name">
+</div>
+
+<div>
+	<label>Distance</label>
+	<select required [(ngModel)]="result.distance">
+		<option *ngFor="let distance of distances" [value]="distance">{{distance}}</option>]
+	</select>
+</div>
+
+<div>
+	<label>Time (gross)</label>
+	<input [(ngModel)]="result.timeGross">
+</div>
+
+<div>
+	<label>Time (net)</label>
+	<input required [(ngModel)]="result.timeNet">
+</div>
+
+<div>
+	<label>Category</label>
+	<input [(ngModel)]="result.category">
+</div>
+
+<div>
+	<label>Agegroup</label>
+	<input [(ngModel)]="result.agegroup">
+</div>
+
+<div>
+	<label>Place (total)</label>
+	<input type="number" [(ngModel)]="result.placeTotal">
+</div>
+
+<div>
+	<label>Place (category)</label>
+	<input type="number" [(ngModel)]="result.placeCategory">
+</div>
+
+<div>
+	<label>Place (agegroup)</label>
+	<input type="number" [(ngModel)]="result.placeAgegroup">
+</div>
+
+<div>
+	<label>Finisher (total)</label>
+	<input type="number" [(ngModel)]="result.finisherTotal">
+</div>
+
+<div>
+	<label>Finisher (category)</label>
+	<input type="number" [(ngModel)]="result.finisherCategory">
+</div>
+
+<div>
+	<label>Finisher (agegroup)</label>
+	<input type="number" [(ngModel)]="result.finisherAgegroup">
+</div>
+
+<button (click)="saveNewResult()">save</button>
