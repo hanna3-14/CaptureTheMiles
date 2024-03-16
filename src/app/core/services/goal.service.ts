@@ -19,4 +19,10 @@ export class GoalService {
 			`${env.api.serverUrl}/api/data/goals`, goal
 		);
 	}
+
+	deleteGoal(id: number){
+		this.httpClient.delete(
+			`${env.api.serverUrl}/api/data/goal/${id}`
+		).subscribe();
+	}
 }

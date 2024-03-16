@@ -18,8 +18,7 @@ import { SharedModule } from './shared';
 			...env.auth0,
 			httpInterceptor: {
 				allowedList: [
-					`${env.api.serverUrl}/api/data/results`,
-					`${env.api.serverUrl}/api/data/goals`,
+					`${env.api.serverUrl}/api/data/*`,
 				],
 			},
 		}),

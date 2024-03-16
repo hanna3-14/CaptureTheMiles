@@ -1,5 +1,5 @@
 export class Goal {
-	id?: number;
+	id!: number;
 	distance = '';
 	time = '';
 }

@@ -12,6 +12,7 @@
 				<th style="text-align: left">{{ goal.id }}</th>
 				<td style="text-align: left">{{ goal.distance }}</td>
 				<td style="text-align: left">{{ goal.time }}</td>
+				<td><button (click)="removeGoal(goal.id)">delete</button></td>
 			</tr>
 		</tbody>
 	</table>

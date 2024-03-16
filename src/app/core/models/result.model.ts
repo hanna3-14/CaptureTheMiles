@@ -1,5 +1,5 @@
 export class Result {
-	id?: number;
+	id!: number;
 	name = '';
 	distance = '';
 	timeGross? = '';

@@ -17,4 +17,9 @@ export class GoalsComponent implements OnInit {
 			this.goals = response;
 		});
 	}
+
+	removeGoal(id: number) {
+		this.goalService.deleteGoal(id)
+		window.location.reload()
+	}
 }

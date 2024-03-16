@@ -21,4 +21,10 @@ export class ResultService {
 			`${env.api.serverUrl}/api/data/results`, result
 		);
 	}
+
+	deleteResult(id: number) {
+		this.httpClient.delete(
+			`${env.api.serverUrl}/api/data/result/${id}`
+		).subscribe();
+	}
 }

@@ -17,4 +17,9 @@ export class ResultsComponent implements OnInit {
 			this.results = response;
 		});
 	}
+
+	removeResult(id: number) {
+		this.resultService.deleteResult(id);
+		window.location.reload()
+	}
 }

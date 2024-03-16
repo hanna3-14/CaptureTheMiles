@@ -18,7 +18,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let result of results; let i = index">
+			<tr *ngFor="let result of results">
 				<td>{{ result.id }}</td>
 				<td>{{ result.name }}</td>
 				<td>{{ result.distance }}</td>
@@ -32,6 +32,7 @@
 				<td>{{ result.finisherTotal }}</td>
 				<td>{{ result.finisherCategory }}</td>
 				<td>{{ result.finisherAgegroup }}</td>
+				<td><button (click)="removeResult(result.id)">delete</button></td>
 			</tr>
 		</tbody>
 	</table>
