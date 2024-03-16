@@ -9,12 +9,38 @@
 		</thead>
 		<tbody>
 			<tr *ngFor="let goal of goals">
-				<th style="text-align: left">{{ goal.id }}</th>
-				<td style="text-align: left">{{ goal.distance }}</td>
-				<td style="text-align: left">{{ goal.time }}</td>
+				<td style="text-align: left">{{ goal.id }}</td>
+				<td>
+					<div *ngIf="editMode[goal.id]">
+						<td>
+							<select required [(ngModel)]="goal.distance">
+								<option *ngFor="let distance of distances" [value]="distance">
+									{{ distance }}
+								</option>
+							</select>
+						</td>
+					</div>
+					<div *ngIf="!editMode[goal.id]">
+						<td>
+							{{ goal.distance }}
+						</td>
+					</div>
+				</td>
+				<td>
+					<div *ngIf="editMode[goal.id]">
+						<td>
+							<input [(ngModel)]="goal.time" />
+						</td>
+					</div>
+					<div *ngIf="!editMode[goal.id]">
+						<td>{{ goal.time }}</td>
+					</div>
+				</td>
+				<td><button (click)="editGoal(goal)">edit</button></td>
+				<td><button (click)="saveGoal(goal)">save</button></td>
 				<td><button (click)="removeGoal(goal.id)">delete</button></td>
 			</tr>
 		</tbody>
 	</table>
-	<app-goal-form></app-goal-form>
+	<app-goal-form [distances]="distances"></app-goal-form>
 </app-page-layout>

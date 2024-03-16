@@ -7,8 +7,15 @@ import { ResultService } from 'src/app/core/services/result.service';
 	templateUrl: './results.component.html',
 })
 export class ResultsComponent implements OnInit {
-	@Input()
 	public results: Result[] = [];
+	public editMode: boolean[] = [];
+	public distances = [
+		'Marathon',
+		'Half Marathon',
+		'10K',
+		'5K',
+		'Badische Meile',
+	];
 
 	constructor(public resultService: ResultService) {}
 
@@ -16,6 +23,15 @@ export class ResultsComponent implements OnInit {
 		this.resultService.getAll().subscribe((response) => {
 			this.results = response;
 		});
+	}
+
+	editResult(result: Result) {
+		this.editMode[result.id] = true;
+	}
+
+	saveResult(result: Result) {
+		this.resultService.updateResult(result);
+		this.editMode[result.id] = false;
 	}
 
 	removeResult(id: number) {

@@ -20,21 +20,115 @@
 		<tbody>
 			<tr *ngFor="let result of results">
 				<td>{{ result.id }}</td>
-				<td>{{ result.name }}</td>
-				<td>{{ result.distance }}</td>
-				<td>{{ result.timeGross }}</td>
-				<td>{{ result.timeNet}}</td>
-				<td>{{ result.category }}</td>
-				<td>{{ result.agegroup }}</td>
-				<td>{{ result.placeTotal }}</td>
-				<td>{{ result.placeCategory }}</td>
-				<td>{{ result.placeAgegroup }}</td>
-				<td>{{ result.finisherTotal }}</td>
-				<td>{{ result.finisherCategory }}</td>
-				<td>{{ result.finisherAgegroup }}</td>
+				<td>
+					<div *ngIf="editMode[result.id]">
+						<td><input [(ngModel)]="result.name" /></td>
+					</div>
+					<div *ngIf="!editMode[result.id]">
+						<td>{{ result.name }}</td>
+					</div>
+				</td>
+				<td>
+					<div *ngIf="editMode[result.id]">
+						<select required [(ngModel)]="result.distance">
+							<option *ngFor="let distance of distances" [value]="distance">
+								{{ distance }}
+							</option>
+						</select>
+					</div>
+					<div *ngIf="!editMode[result.id]">
+						<td>{{ result.distance }}</td>
+					</div>
+				</td>
+				<td>
+					<div *ngIf="editMode[result.id]">
+						<td><input [(ngModel)]="result.timeGross" /></td>
+					</div>
+					<div *ngIf="!editMode[result.id]">
+						<td>{{ result.timeGross }}</td>
+					</div>
+				</td>
+				<td>
+					<div *ngIf="editMode[result.id]">
+						<td><input [(ngModel)]="result.timeNet" /></td>
+					</div>
+					<div *ngIf="!editMode[result.id]">
+						<td>{{ result.timeNet }}</td>
+					</div>
+				</td>
+				<td>
+					<div *ngIf="editMode[result.id]">
+						<td><input [(ngModel)]="result.category" /></td>
+					</div>
+					<div *ngIf="!editMode[result.id]">
+						<td>{{ result.category }}</td>
+					</div>
+				</td>
+				<td>
+					<div *ngIf="editMode[result.id]">
+						<td><input [(ngModel)]="result.agegroup" /></td>
+					</div>
+					<div *ngIf="!editMode[result.id]">
+						<td>{{ result.agegroup }}</td>
+					</div>
+				</td>
+				<td>
+					<div *ngIf="editMode[result.id]">
+						<td><input type="number" [(ngModel)]="result.placeTotal" /></td>
+					</div>
+					<div *ngIf="!editMode[result.id]">
+						<td>{{ result.placeTotal }}</td>
+					</div>
+				</td>
+				<td>
+					<div *ngIf="editMode[result.id]">
+						<td><input type="number" [(ngModel)]="result.placeCategory" /></td>
+					</div>
+					<div *ngIf="!editMode[result.id]">
+						<td>{{ result.placeCategory }}</td>
+					</div>
+				</td>
+				<td>
+					<div *ngIf="editMode[result.id]">
+						<td><input type="number" [(ngModel)]="result.placeAgegroup" /></td>
+					</div>
+					<div *ngIf="!editMode[result.id]">
+						<td>{{ result.placeAgegroup }}</td>
+					</div>
+				</td>
+				<td>
+					<div *ngIf="editMode[result.id]">
+						<td><input type="number" [(ngModel)]="result.finisherTotal" /></td>
+					</div>
+					<div *ngIf="!editMode[result.id]">
+						<td>{{ result.finisherTotal }}</td>
+					</div>
+				</td>
+				<td>
+					<div *ngIf="editMode[result.id]">
+						<td>
+							<input type="number" [(ngModel)]="result.finisherCategory" />
+						</td>
+					</div>
+					<div *ngIf="!editMode[result.id]">
+						<td>{{ result.finisherCategory }}</td>
+					</div>
+				</td>
+				<td>
+					<div *ngIf="editMode[result.id]">
+						<td>
+							<input type="number" [(ngModel)]="result.finisherAgegroup" />
+						</td>
+					</div>
+					<div *ngIf="!editMode[result.id]">
+						<td>{{ result.finisherAgegroup }}</td>
+					</div>
+				</td>
+				<td><button (click)="editResult(result)">edit</button></td>
+				<td><button (click)="saveResult(result)">save</button></td>
 				<td><button (click)="removeResult(result.id)">delete</button></td>
 			</tr>
 		</tbody>
 	</table>
-	<app-result-form></app-result-form>	
+	<app-result-form [distances]="distances"></app-result-form>
 </app-page-layout>

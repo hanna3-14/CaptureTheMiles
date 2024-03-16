@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Result } from 'src/app/core/models/result.model';
 import { ResultService } from 'src/app/core/services/result.service';
 
@@ -7,11 +7,10 @@ import { ResultService } from 'src/app/core/services/result.service';
 	templateUrl: './result-form.component.html',
 })
 export class ResultFormComponent {
-
-	distances = ["Marathon", "Half Marathon", "10K", "5K", "Badische Meile"]
-
-	result = new Result
-	results: Result[] = [];
+	@Input()
+	public distances: String[] = [];
+	public result = new Result();
+	private results: Result[] = [];
 
 	constructor(public resultService: ResultService) {}
 

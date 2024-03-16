@@ -22,6 +22,15 @@ export class ResultService {
 		);
 	}
 
+	updateResult(result: Result) {
+		this.httpClient
+			.patch<number>(
+				`${env.api.serverUrl}/api/data/result/${result.id}`,
+				result,
+			)
+			.subscribe();
+	}
+
 	deleteResult(id: number) {
 		this.httpClient.delete(
 			`${env.api.serverUrl}/api/data/result/${id}`

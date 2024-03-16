@@ -20,6 +20,12 @@ export class GoalService {
 		);
 	}
 
+	updateGoal(goal: Goal) {
+		this.httpClient
+			.patch<number>(`${env.api.serverUrl}/api/data/goal/${goal.id}`, goal)
+			.subscribe();
+	}
+
 	deleteGoal(id: number){
 		this.httpClient.delete(
 			`${env.api.serverUrl}/api/data/goal/${id}`

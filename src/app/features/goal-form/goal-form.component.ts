@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Goal } from 'src/app/core/models/goal.model';
 import { GoalService } from 'src/app/core/services/goal.service';
 
@@ -7,8 +7,8 @@ import { GoalService } from 'src/app/core/services/goal.service';
 	templateUrl: './goal-form.component.html',
 })
 export class GoalFormComponent {
-
-	distances = ["Marathon", "Half Marathon", "10K", "5K", "Badische Meile"]
+	@Input()
+	distances: String[] = [];
 
 	goal = new Goal
 	goals: Goal[] = [];

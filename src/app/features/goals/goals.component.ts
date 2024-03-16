@@ -7,8 +7,15 @@ import { GoalService } from 'src/app/core/services/goal.service';
 	templateUrl: './goals.component.html',
 })
 export class GoalsComponent implements OnInit {
-	@Input()
 	public goals: Goal[] = [];
+	public editMode: boolean[] = [];
+	public distances = [
+		'Marathon',
+		'Half Marathon',
+		'10K',
+		'5K',
+		'Badische Meile',
+	];
 
 	constructor(public goalService: GoalService) {}
 
@@ -16,6 +23,15 @@ export class GoalsComponent implements OnInit {
 		this.goalService.getAll().subscribe((response) => {
 			this.goals = response;
 		});
+	}
+
+	editGoal(goal: Goal) {
+		this.editMode[goal.id] = true;
+	}
+
+	saveGoal(goal: Goal) {
+		this.goalService.updateGoal(goal);
+		this.editMode[goal.id] = false;
 	}
 
 	removeGoal(id: number) {
