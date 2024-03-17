@@ -1,15 +1,14 @@
+import { CategoryNumbers } from './categoryNumbers.model';
+import { RaceTime } from './raceTime.model';
+
 export class Result {
 	id!: number;
-	name = '';
+	date = '';
 	distance = '';
-	timeGross? = '';
-	timeNet = '';
+	timeGross: RaceTime = new RaceTime();
+	timeNet: RaceTime = new RaceTime();
 	category? = '';
 	agegroup? = '';
-	placeTotal?: number;
-	placeCategory?: number;
-	placeAgegroup?: number;
-	finisherTotal?: number;
-	finisherCategory?: number;
-	finisherAgegroup?: number;
+	place: CategoryNumbers = new CategoryNumbers();
+	finisher: CategoryNumbers = new CategoryNumbers();
 }

@@ -11,6 +11,12 @@ export class ResultFormComponent {
 	public distances: String[] = [];
 	public result = new Result();
 	private results: Result[] = [];
+	public events = [
+		{ name: 'Baden-Marathon' },
+		{ name: 'Schwarzwald-Marathon' },
+		{ name: 'Bienwald-Marathon' },
+		{ name: 'Freiburg-Marathon' },
+	]; // TODO: get events from server
 
 	constructor(public resultService: ResultService) {}
 
