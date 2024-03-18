@@ -1,0 +1,13 @@
+<h2>add new event</h2>
+
+<div>
+	<label>Event Name</label>
+	<input required [(ngModel)]="event.name" />
+</div>
+
+<div>
+	<label>Location</label>
+	<input [(ngModel)]="event.location" />
+</div>
+
+<button (click)="saveNewEvent()">save</button>

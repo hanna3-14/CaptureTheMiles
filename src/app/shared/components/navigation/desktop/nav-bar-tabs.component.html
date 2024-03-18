@@ -1,5 +1,6 @@
 <div>
 	<ng-container *ngIf="isAuthenticated$ | async">
+		<app-nav-bar-tab path="/events" label="Events"></app-nav-bar-tab>
 		<app-nav-bar-tab path="/results" label="Results"></app-nav-bar-tab>
 		<app-nav-bar-tab path="/goals" label="Goals"></app-nav-bar-tab>
 	</ng-container>

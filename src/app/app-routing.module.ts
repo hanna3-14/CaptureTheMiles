@@ -10,6 +10,14 @@ const routes: Routes = [
 			import('./../app/features/home/home.module').then((m) => m.HomeModule),
 	},
 	{
+		path: 'events',
+		loadChildren: () =>
+			import('./../app/features/events/events.module').then(
+				(m) => m.EventsModule,
+			),
+		canActivate: [AuthGuard],
+	},
+	{
 		path: 'results',
 		loadChildren: () =>
 			import('./../app/features/results/results.module').then(
