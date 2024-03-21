@@ -2,7 +2,7 @@
 
 <div>
 	<label>Event Name</label>
-	<select required [(ngModel)]="events[0].name">
+	<select required [(ngModel)]="eventname">
 		<option *ngFor="let event of events" [value]="event.name">
 			{{ event.name }}
 		</option>

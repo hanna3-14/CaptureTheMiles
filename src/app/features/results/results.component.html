@@ -2,7 +2,8 @@
 	<table style="width: 100%">
 		<thead>
 			<tr>
-				<th style="text-align: left">ID</th>
+				<th style="text-align: left">ResultID</th>
+				<th style="text-align: left">Event</th>
 				<th style="text-align: left">Date</th>
 				<th style="text-align: left">Distance</th>
 				<th style="text-align: left">Time (gross)</th>
@@ -19,36 +20,44 @@
 		</thead>
 		<tbody>
 			<tr *ngFor="let result of results">
-				<td>{{ result.id }}</td>
+				<td>{{ result.resultId }}</td>
 				<td>
-					<div *ngIf="editMode[result.id]">
+					<div *ngIf="editMode[result.resultId]">
+						<td><input [(ngModel)]="result.eventId" /></td>
+					</div>
+					<div *ngIf="!editMode[result.resultId]">
+						<td>{{ events[result.eventId - 1].name }}</td>
+					</div>
+				</td>
+				<td>
+					<div *ngIf="editMode[result.resultId]">
 						<td><input type="date" [(ngModel)]="result.date" /></td>
 					</div>
-					<div *ngIf="!editMode[result.id]">
+					<div *ngIf="!editMode[result.resultId]">
 						<td>{{ result.date }}</td>
 					</div>
 				</td>
 				<td>
-					<div *ngIf="editMode[result.id]">
+					<div *ngIf="editMode[result.resultId]">
 						<select required [(ngModel)]="result.distance">
 							<option *ngFor="let distance of distances" [value]="distance">
 								{{ distance }}
 							</option>
 						</select>
 					</div>
-					<div *ngIf="!editMode[result.id]">
+					<div *ngIf="!editMode[result.resultId]">
 						<td>{{ result.distance }}</td>
 					</div>
 				</td>
 				<td>
-					<div *ngIf="editMode[result.id]">
+					<div *ngIf="editMode[result.resultId]">
 						<td>
 							<input type="number" [(ngModel)]="result.timeGross.hours" />
 							<input type="number" [(ngModel)]="result.timeGross.minutes" />
 							<input type="number" [(ngModel)]="result.timeGross.seconds" />
 						</td>
 					</div>
-					<div *ngIf="!editMode[result.id]">
+					<div *ngIf="!editMode[result.resultId]">
 						<td>
 							{{ result.timeGross.hours }}:{{ result.timeGross.minutes }}:{{
 								result.timeGross.seconds
@@ -57,14 +66,14 @@
 					</div>
 				</td>
 				<td>
-					<div *ngIf="editMode[result.id]">
+					<div *ngIf="editMode[result.resultId]">
 						<td>
 							<input type="number" [(ngModel)]="result.timeNet.hours" />
 							<input type="number" [(ngModel)]="result.timeNet.minutes" />
 							<input type="number" [(ngModel)]="result.timeNet.seconds" />
 						</td>
 					</div>
-					<div *ngIf="!editMode[result.id]">
+					<div *ngIf="!editMode[result.resultId]">
 						<td>
 							{{ result.timeNet.hours }}:{{ result.timeNet.minutes }}:{{
 								result.timeNet.seconds
@@ -73,76 +82,76 @@
 					</div>
 				</td>
 				<td>
-					<div *ngIf="editMode[result.id]">
+					<div *ngIf="editMode[result.resultId]">
 						<td><input [(ngModel)]="result.category" /></td>
 					</div>
-					<div *ngIf="!editMode[result.id]">
+					<div *ngIf="!editMode[result.resultId]">
 						<td>{{ result.category }}</td>
 					</div>
 				</td>
 				<td>
-					<div *ngIf="editMode[result.id]">
+					<div *ngIf="editMode[result.resultId]">
 						<td><input [(ngModel)]="result.agegroup" /></td>
 					</div>
-					<div *ngIf="!editMode[result.id]">
+					<div *ngIf="!editMode[result.resultId]">
 						<td>{{ result.agegroup }}</td>
 					</div>
 				</td>
 				<td>
-					<div *ngIf="editMode[result.id]">
+					<div *ngIf="editMode[result.resultId]">
 						<td><input type="number" [(ngModel)]="result.place.total" /></td>
 					</div>
-					<div *ngIf="!editMode[result.id]">
+					<div *ngIf="!editMode[result.resultId]">
 						<td>{{ result.place.total }}</td>
 					</div>
 				</td>
 				<td>
-					<div *ngIf="editMode[result.id]">
+					<div *ngIf="editMode[result.resultId]">
 						<td><input type="number" [(ngModel)]="result.place.category" /></td>
 					</div>
-					<div *ngIf="!editMode[result.id]">
+					<div *ngIf="!editMode[result.resultId]">
 						<td>{{ result.place.category }}</td>
 					</div>
 				</td>
 				<td>
-					<div *ngIf="editMode[result.id]">
+					<div *ngIf="editMode[result.resultId]">
 						<td><input type="number" [(ngModel)]="result.place.agegroup" /></td>
 					</div>
-					<div *ngIf="!editMode[result.id]">
+					<div *ngIf="!editMode[result.resultId]">
 						<td>{{ result.place.agegroup }}</td>
 					</div>
 				</td>
 				<td>
-					<div *ngIf="editMode[result.id]">
+					<div *ngIf="editMode[result.resultId]">
 						<td><input type="number" [(ngModel)]="result.finisher.total" /></td>
 					</div>
-					<div *ngIf="!editMode[result.id]">
+					<div *ngIf="!editMode[result.resultId]">
 						<td>{{ result.finisher.total }}</td>
 					</div>
 				</td>
 				<td>
-					<div *ngIf="editMode[result.id]">
+					<div *ngIf="editMode[result.resultId]">
 						<td>
 							<input type="number" [(ngModel)]="result.finisher.category" />
 						</td>
 					</div>
-					<div *ngIf="!editMode[result.id]">
+					<div *ngIf="!editMode[result.resultId]">
 						<td>{{ result.finisher.category }}</td>
 					</div>
 				</td>
 				<td>
-					<div *ngIf="editMode[result.id]">
+					<div *ngIf="editMode[result.resultId]">
 						<td>
 							<input type="number" [(ngModel)]="result.finisher.agegroup" />
 						</td>
 					</div>
-					<div *ngIf="!editMode[result.id]">
+					<div *ngIf="!editMode[result.resultId]">
 						<td>{{ result.finisher.agegroup }}</td>
 					</div>
 				</td>
 				<td><button (click)="editResult(result)">edit</button></td>
 				<td><button (click)="saveResult(result)">save</button></td>
-				<td><button (click)="removeResult(result.id)">delete</button></td>
+				<td><button (click)="removeResult(result.resultId)">delete</button></td>
 			</tr>
 		</tbody>
 	</table>

@@ -26,7 +26,7 @@ export class ResultService {
 	updateResult(result: Result) {
 		this.httpClient
 			.patch<number>(
-				`${env.api.serverUrl}/api/data/result/${result.id}`,
+				`${env.api.serverUrl}/api/data/result/${result.resultId}`,
 				result,
 			)
 			.subscribe();

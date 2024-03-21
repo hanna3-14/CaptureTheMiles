@@ -2,7 +2,8 @@ import { CategoryNumbers } from './categoryNumbers.model';
 import { RaceTime } from './raceTime.model';
 
 export class Result {
-	id!: number;
+	resultId!: number;
+	eventId!: number;
 	date = '';
 	distance = '';
 	timeGross: RaceTime = new RaceTime();

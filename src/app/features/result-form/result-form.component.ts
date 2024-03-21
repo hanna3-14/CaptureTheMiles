@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { RaceEvent } from 'src/app/core/models/raceEvent.model';
 import { Result } from 'src/app/core/models/result.model';
+import { EventService } from 'src/app/core/services/event.service';
 import { ResultService } from 'src/app/core/services/result.service';
 
 @Component({
@@ -11,16 +13,26 @@ export class ResultFormComponent {
 	public distances: String[] = [];
 	public result = new Result();
 	private results: Result[] = [];
-	public events = [
-		{ name: 'Baden-Marathon' },
-		{ name: 'Schwarzwald-Marathon' },
-		{ name: 'Bienwald-Marathon' },
-		{ name: 'Freiburg-Marathon' },
-	]; // TODO: get events from server
+	public eventname: string = '';
+	public events: RaceEvent[] = [];
 
-	constructor(public resultService: ResultService) {}
+	constructor(
+		public resultService: ResultService,
+		public eventService: EventService,
+	) {}
+
+	ngOnInit(): void {
+		this.eventService.getAll().subscribe((response) => {
+			this.events = response;
+		});
+	}
 
 	saveNewResult() {
+		this.events.forEach((event) => {
+			if (event.name === this.eventname) {
+				this.result.eventId = event.id;
+			}
+		}, null);
 		this.resultService
 			.addResult(this.result)
 			.subscribe((result) => this.results.push(result));
