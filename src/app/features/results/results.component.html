@@ -59,9 +59,9 @@
 					</div>
 					<div *ngIf="!editMode[result.resultId]">
 						<td>
-							{{ result.timeGross.hours }}:{{ result.timeGross.minutes }}:{{
-								result.timeGross.seconds
-							}}
+							{{ result.timeGross.hours }}:{{
+								result.timeGross.minutes!!.toString().padStart(2, '0')
+							}}:{{ result.timeGross.seconds!!.toString().padStart(2, '0') }}
 						</td>
 					</div>
 				</td>
@@ -75,9 +75,9 @@
 					</div>
 					<div *ngIf="!editMode[result.resultId]">
 						<td>
-							{{ result.timeNet.hours }}:{{ result.timeNet.minutes }}:{{
-								result.timeNet.seconds
-							}}
+							{{ result.timeNet.hours }}:{{
+								result.timeNet.minutes!!.toString().padStart(2, '0')
+							}}:{{ result.timeNet.seconds!!.toString().padStart(2, '0') }}
 						</td>
 					</div>
 				</td>
