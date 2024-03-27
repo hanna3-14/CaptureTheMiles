@@ -23,7 +23,13 @@
 				<td>{{ result.resultId }}</td>
 				<td>
 					<div *ngIf="editMode[result.resultId]">
-						<td><input [(ngModel)]="result.eventId" /></td>
+						<td>
+							<select required [(ngModel)]="eventname">
+								<option *ngFor="let event of events" [value]="event.name">
+									{{ event.name }}
+								</option>
+							</select>
+						</td>
 					</div>
 					<div *ngIf="!editMode[result.resultId]">
 						<td>{{ events[result.eventId - 1].name }}</td>

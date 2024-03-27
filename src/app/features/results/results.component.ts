@@ -18,6 +18,7 @@ export class ResultsComponent implements OnInit {
 		'5K',
 		'Badische Meile',
 	];
+	public eventname: string = '';
 	public events: RaceEvent[] = [];
 
 	constructor(
@@ -39,6 +40,11 @@ export class ResultsComponent implements OnInit {
 	}
 
 	saveResult(result: Result) {
+		this.events.forEach((event) => {
+			if (event.name === this.eventname) {
+				result.eventId = event.id;
+			}
+		}, null);
 		this.resultService.updateResult(result);
 		this.editMode[result.resultId] = false;
 	}
