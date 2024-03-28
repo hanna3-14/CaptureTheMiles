@@ -16,9 +16,9 @@
 
 <div>
 	<label>Distance</label>
-	<select required [(ngModel)]="result.distance">
-		<option *ngFor="let distance of distances" [value]="distance">
-			{{ distance }}
+	<select required [(ngModel)]="distancename">
+		<option *ngFor="let distance of distances" [value]="distance.name">
+			{{ distance.name }}
 		</option>
 	</select>
 </div>

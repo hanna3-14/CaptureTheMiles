@@ -45,14 +45,17 @@
 				</td>
 				<td>
 					<div *ngIf="editMode[result.resultId]">
-						<select required [(ngModel)]="result.distance">
-							<option *ngFor="let distance of distances" [value]="distance">
-								{{ distance }}
+						<select required [(ngModel)]="distancename">
+							<option
+								*ngFor="let distance of distances"
+								[value]="distance.name"
+							>
+								{{ distance.name }}
 							</option>
 						</select>
 					</div>
 					<div *ngIf="!editMode[result.resultId]">
-						<td>{{ result.distance }}</td>
+						<td>{{ distances[result.distanceId - 1].name }}</td>
 					</div>
 				</td>
 				<td>
@@ -162,4 +165,5 @@
 		</tbody>
 	</table>
 	<app-result-form [distances]="distances"></app-result-form>
+	<app-distance-form (distances)="(distances)"></app-distance-form>
 </app-page-layout>

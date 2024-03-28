@@ -1,0 +1,13 @@
+<h2>add new distance</h2>
+
+<div>
+	<label>Name</label>
+	<input required [(ngModel)]="distance.name" />
+</div>
+
+<div>
+	<label>Distance in meters</label>
+	<input type="number" [(ngModel)]="distance.distanceInMeters" />
+</div>
+
+<button (click)="saveNewDistance()">save</button>

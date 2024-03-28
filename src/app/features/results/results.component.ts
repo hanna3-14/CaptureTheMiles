@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Distance } from 'src/app/core/models/distance.model';
 import { RaceEvent } from 'src/app/core/models/raceEvent.model';
 import { Result } from 'src/app/core/models/result.model';
+import { DistanceService } from 'src/app/core/services/distance.service';
 import { EventService } from 'src/app/core/services/event.service';
 import { ResultService } from 'src/app/core/services/result.service';
 
@@ -11,19 +13,15 @@ import { ResultService } from 'src/app/core/services/result.service';
 export class ResultsComponent implements OnInit {
 	public results: Result[] = [];
 	public editMode: boolean[] = [];
-	public distances = [
-		'Marathon',
-		'Half Marathon',
-		'10K',
-		'5K',
-		'Badische Meile',
-	];
+	public distancename: string = '';
+	public distances: Distance[] = [];
 	public eventname: string = '';
 	public events: RaceEvent[] = [];
 
 	constructor(
 		public resultService: ResultService,
 		public eventService: EventService,
+		public distanceService: DistanceService,
 	) {}
 
 	ngOnInit(): void {
@@ -32,6 +30,9 @@ export class ResultsComponent implements OnInit {
 		});
 		this.eventService.getAll().subscribe((response) => {
 			this.events = response;
+		});
+		this.distanceService.getAll().subscribe((response) => {
+			this.distances = response;
 		});
 	}
 
@@ -43,6 +44,11 @@ export class ResultsComponent implements OnInit {
 		this.events.forEach((event) => {
 			if (event.name === this.eventname) {
 				result.eventId = event.id;
+			}
+		}, null);
+		this.distances.forEach((distance) => {
+			if (distance.name === this.distancename) {
+				result.distanceId = distance.id;
 			}
 		}, null);
 		this.resultService.updateResult(result);

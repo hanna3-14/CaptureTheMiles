@@ -5,7 +5,7 @@ export class Result {
 	resultId!: number;
 	eventId!: number;
 	date = '';
-	distance = '';
+	distanceId!: number;
 	timeGross: RaceTime = new RaceTime();
 	timeNet: RaceTime = new RaceTime();
 	category? = '';
