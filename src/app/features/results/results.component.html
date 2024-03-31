@@ -16,6 +16,9 @@
 				<th style="text-align: left">Finisher (total)</th>
 				<th style="text-align: left">Finisher (category)</th>
 				<th style="text-align: left">Finisher (agegroup)</th>
+				<th style="text-align: left">Relative Place (total)</th>
+				<th style="text-align: left">Relative Place (category)</th>
+				<th style="text-align: left">Relative Place (agegroup)</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -156,6 +159,21 @@
 					</div>
 					<div *ngIf="!editMode[result.resultId]">
 						<td>{{ result.finisher.agegroup }}</td>
+					</div>
+				</td>
+				<td>
+					<div>
+						<td>{{ result.relativePlaces.total }}</td>
+					</div>
+				</td>
+				<td>
+					<div>
+						<td>{{ result.relativePlaces.category }}</td>
+					</div>
+				</td>
+				<td>
+					<div>
+						<td>{{ result.relativePlaces.agegroup }}</td>
 					</div>
 				</td>
 				<td><button (click)="editResult(result)">edit</button></td>

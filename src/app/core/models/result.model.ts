@@ -12,4 +12,5 @@ export class Result {
 	agegroup? = '';
 	place: CategoryNumbers = new CategoryNumbers();
 	finisher: CategoryNumbers = new CategoryNumbers();
+	relativePlaces: CategoryNumbers = new CategoryNumbers();
 }
