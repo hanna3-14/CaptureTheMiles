@@ -1,0 +1,8 @@
+.tabs {
+    display: inline-table;
+    margin: 0.2em;
+}
+
+.tab {
+    font-size: 24px;
+}
