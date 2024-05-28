@@ -1,17 +1,22 @@
-<h2>add new goal</h2>
+<fieldset class="goal-form">
+	<legend>Add New Goal</legend>
 
-<div>
-	<label>Distance</label>
-	<select required [(ngModel)]="goal.distance">
-		<option *ngFor="let distance of distances" [value]="distance">
-			{{ distance }}
-		</option>
-	</select>
-</div>
+	<div class="form-input">
+		<label>Distance</label>
+		<select required [(ngModel)]="goal.distance">
+			<option *ngFor="let distance of distances" [value]="distance">
+				{{ distance }}
+			</option>
+		</select>
+	</div>
 
-<div>
-	<label>Time</label>
-	<input [(ngModel)]="goal.time" />
-</div>
+	<div class="form-input">
+		<label>Time</label>
+		<input [(ngModel)]="goal.time" />
+	</div>
 
-<button (click)="saveNewGoal()">save</button>
+	<div class="form-input">
+		<label></label>
+		<button class="save-button" (click)="saveNewGoal()">save</button>
+	</div>
+</fieldset>

@@ -1,0 +1,16 @@
+.result-form {
+	width: 90%;
+	display: inline-flex;
+}
+
+.left-div {
+	width: 50%;
+
+	input[type='number'] {
+		width: 29%;
+	}
+}
+
+.right-div {
+	width: 50%;
+}

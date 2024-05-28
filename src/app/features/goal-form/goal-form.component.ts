@@ -5,6 +5,7 @@ import { GoalService } from 'src/app/core/services/goal.service';
 @Component({
 	selector: 'app-goal-form',
 	templateUrl: './goal-form.component.html',
+	styleUrls: ['./goal-form.component.css'],
 })
 export class GoalFormComponent {
 	@Input()

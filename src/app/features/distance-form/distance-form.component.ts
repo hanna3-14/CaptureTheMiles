@@ -5,6 +5,7 @@ import { DistanceService } from 'src/app/core/services/distance.service';
 @Component({
 	selector: 'app-distance-form',
 	templateUrl: './distance-form.component.html',
+	styleUrls: ['./distance-form.component.css'],
 })
 export class DistanceFormComponent {
 	@Input()

@@ -1,80 +1,117 @@
-<h2>add new result</h2>
+<fieldset class="result-form">
+	<legend>Add New Result</legend>
 
-<div>
-	<label>Event Name</label>
-	<select required [(ngModel)]="eventname">
-		<option *ngFor="let event of events" [value]="event.name">
-			{{ event.name }}
-		</option>
-	</select>
-</div>
+	<div class="left-div">
+		<div class="form-input">
+			<label>Event Name</label>
+			<select required [(ngModel)]="eventname">
+				<option *ngFor="let event of events" [value]="event.name">
+					{{ event.name }}
+				</option>
+			</select>
+		</div>
 
-<div>
-	<label>Date</label>
-	<input type="date" required [(ngModel)]="result.date" />
-</div>
+		<div class="form-input">
+			<label>Date</label>
+			<input type="date" required [(ngModel)]="result.date" />
+		</div>
 
-<div>
-	<label>Distance</label>
-	<select required [(ngModel)]="distancename">
-		<option *ngFor="let distance of distances" [value]="distance.name">
-			{{ distance.name }}
-		</option>
-	</select>
-</div>
+		<div class="form-input">
+			<label>Distance</label>
+			<select required [(ngModel)]="distancename">
+				<option *ngFor="let distance of distances" [value]="distance.name">
+					{{ distance.name }}
+				</option>
+			</select>
+		</div>
 
-<div>
-	<label>Time (gross)</label>
-	<input type="number" [(ngModel)]="result.timeGross.hours" />
-	<input type="number" [(ngModel)]="result.timeGross.minutes" />
-	<input type="number" [(ngModel)]="result.timeGross.seconds" />
-</div>
+		<div class="form-input">
+			<label>Time (gross)</label>
+			<div>
+				<input
+					type="number"
+					placeholder="hours"
+					[(ngModel)]="result.timeGross.hours"
+				/>
+				<input
+					type="number"
+					placeholder="minutes"
+					[(ngModel)]="result.timeGross.minutes"
+				/>
+				<input
+					type="number"
+					placeholder="seconds"
+					[(ngModel)]="result.timeGross.seconds"
+				/>
+			</div>
+		</div>
 
-<div>
-	<label>Time (net)</label>
-	<input type="number" [(ngModel)]="result.timeNet.hours" />
-	<input type="number" [(ngModel)]="result.timeNet.minutes" />
-	<input type="number" [(ngModel)]="result.timeNet.seconds" />
-</div>
+		<div class="form-input">
+			<label>Time (net)</label>
+			<div>
+				<input
+					type="number"
+					placeholder="hours"
+					[(ngModel)]="result.timeNet.hours"
+				/>
+				<input
+					type="number"
+					placeholder="minutes"
+					[(ngModel)]="result.timeNet.minutes"
+				/>
+				<input
+					type="number"
+					placeholder="seconds"
+					[(ngModel)]="result.timeNet.seconds"
+				/>
+			</div>
+		</div>
 
-<div>
-	<label>Category</label>
-	<input [(ngModel)]="result.category" />
-</div>
+		<div class="form-input">
+			<label>Category</label>
+			<input [(ngModel)]="result.category" />
+		</div>
 
-<div>
-	<label>Agegroup</label>
-	<input [(ngModel)]="result.agegroup" />
-</div>
+		<div class="form-input">
+			<label>Agegroup</label>
+			<input [(ngModel)]="result.agegroup" />
+		</div>
+	</div>
 
-<div>
-	<label>Place (total)</label>
-	<input type="number" [(ngModel)]="result.place.total" />
-</div>
+	<div class="right-div">
+		<div class="form-input">
+			<label>Place (total)</label>
+			<input type="number" [(ngModel)]="result.place.total" />
+		</div>
 
-<div>
-	<label>Place (category)</label>
-	<input type="number" [(ngModel)]="result.place.category" />
-</div>
+		<div class="form-input">
+			<label>Place (category)</label>
+			<input type="number" [(ngModel)]="result.place.category" />
+		</div>
 
-<div>
-	<label>Place (agegroup)</label>
-	<input type="number" [(ngModel)]="result.place.agegroup" />
-</div>
+		<div class="form-input">
+			<label>Place (agegroup)</label>
+			<input type="number" [(ngModel)]="result.place.agegroup" />
+		</div>
 
-<div>
-	<label>Finisher (total)</label>
-	<input type="number" [(ngModel)]="result.finisher.total" />
-</div>
+		<div class="form-input">
+			<label>Finisher (total)</label>
+			<input type="number" [(ngModel)]="result.finisher.total" />
+		</div>
 
-<div>
-	<label>Finisher (category)</label>
-	<input type="number" [(ngModel)]="result.finisher.category" />
-</div>
+		<div class="form-input">
+			<label>Finisher (category)</label>
+			<input type="number" [(ngModel)]="result.finisher.category" />
+		</div>
 
-<div>
-	<label>Finisher (agegroup)</label>
-	<input type="number" [(ngModel)]="result.finisher.agegroup" />
-</div>
+		<div class="form-input">
+			<label>Finisher (agegroup)</label>
+			<input type="number" [(ngModel)]="result.finisher.agegroup" />
+		</div>
 
-<button (click)="saveNewResult()">save</button>
+		<div class="form-input">
+			<label></label>
+			<button class="save-button" (click)="saveNewResult()">save</button>
+		</div>
+	</div>
+</fieldset>

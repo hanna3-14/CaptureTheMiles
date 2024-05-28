@@ -1,13 +1,18 @@
-<h2>add new event</h2>
+<fieldset class="event-form">
+	<legend>Add New Event</legend>
 
-<div>
-	<label>Event Name</label>
-	<input required [(ngModel)]="event.name" />
-</div>
+	<div class="form-input">
+		<label>Event Name</label>
+		<input required [(ngModel)]="event.name" />
+	</div>
 
-<div>
-	<label>Location</label>
-	<input [(ngModel)]="event.location" />
-</div>
+	<div class="form-input">
+		<label>Location</label>
+		<input [(ngModel)]="event.location" />
+	</div>
 
-<button (click)="saveNewEvent()">save</button>
+	<div class="form-input">
+		<label></label>
+		<button class="save-button" (click)="saveNewEvent()">save</button>
+	</div>
+</fieldset>

@@ -9,7 +9,7 @@ import { ResultService } from 'src/app/core/services/result.service';
 @Component({
 	selector: 'app-result-form',
 	templateUrl: './result-form.component.html',
-	// styleUrls: ['./result-form.component.css'],
+	styleUrls: ['./result-form.component.css'],
 })
 export class ResultFormComponent {
 	@Input()

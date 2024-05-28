@@ -9,6 +9,7 @@ import { ResultService } from 'src/app/core/services/result.service';
 @Component({
 	selector: 'app-results',
 	templateUrl: './results.component.html',
+	styleUrls: ['./results.component.css'],
 })
 export class ResultsComponent implements OnInit {
 	public results: Result[] = [];
