@@ -2,14 +2,12 @@
 	<table style="width: 100%">
 		<thead>
 			<tr>
-				<th style="text-align: left">ID</th>
 				<th style="text-align: left">Event Name</th>
 				<th style="text-align: left">Location</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr *ngFor="let event of events">
-				<td>{{ event.id }}</td>
 				<td>
 					<div *ngIf="editMode[event.id]">
 						<td><input [(ngModel)]="event.name" /></td>
@@ -26,9 +24,19 @@
 						<td>{{ event.location }}</td>
 					</div>
 				</td>
-				<td><button (click)="editEvent(event)">edit</button></td>
-				<td><button (click)="saveEvent(event)">save</button></td>
-				<td><button (click)="removeEvent(event.id)">delete</button></td>
+				<td>
+					<div class="update-buttons">
+						<button class="update-button" (click)="editEvent(event)">
+							edit
+						</button>
+						<button class="update-button" (click)="saveEvent(event)">
+							save
+						</button>
+						<button class="update-button" (click)="removeEvent(event.id)">
+							delete
+						</button>
+					</div>
+				</td>
 			</tr>
 		</tbody>
 	</table>

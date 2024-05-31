@@ -2,7 +2,6 @@
 	<table style="width: 100%">
 		<thead>
 			<tr>
-				<th style="text-align: left">ResultID</th>
 				<th style="text-align: left">Event</th>
 				<th style="text-align: left">Date</th>
 				<th style="text-align: left">Distance</th>
@@ -23,7 +22,6 @@
 		</thead>
 		<tbody>
 			<tr *ngFor="let result of results">
-				<td>{{ result.resultId }}</td>
 				<td>
 					<div *ngIf="editMode[result.resultId]">
 						<td>
@@ -176,9 +174,22 @@
 						<td>{{ result.relativePlaces.agegroup }}</td>
 					</div>
 				</td>
-				<td><button (click)="editResult(result)">edit</button></td>
-				<td><button (click)="saveResult(result)">save</button></td>
-				<td><button (click)="removeResult(result.resultId)">delete</button></td>
+				<td>
+					<div class="update-buttons">
+						<button class="update-button" (click)="editResult(result)">
+							edit
+						</button>
+						<button class="update-button" (click)="saveResult(result)">
+							save
+						</button>
+						<button
+							class="update-button"
+							(click)="removeResult(result.resultId)"
+						>
+							delete
+						</button>
+					</div>
+				</td>
 			</tr>
 		</tbody>
 	</table>

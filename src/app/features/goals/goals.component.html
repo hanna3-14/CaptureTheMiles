@@ -2,14 +2,12 @@
 	<table style="width: 100%">
 		<thead>
 			<tr>
-				<th style="text-align: left">ID</th>
 				<th style="text-align: left">Distance</th>
 				<th style="text-align: left">Time</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr *ngFor="let goal of goals">
-				<td style="text-align: left">{{ goal.id }}</td>
 				<td>
 					<div *ngIf="editMode[goal.id]">
 						<td>
@@ -36,9 +34,15 @@
 						<td>{{ goal.time }}</td>
 					</div>
 				</td>
-				<td><button (click)="editGoal(goal)">edit</button></td>
-				<td><button (click)="saveGoal(goal)">save</button></td>
-				<td><button (click)="removeGoal(goal.id)">delete</button></td>
+				<td>
+					<div class="update-buttons">
+						<button class="update-button" (click)="editGoal(goal)">edit</button>
+						<button class="update-button" (click)="saveGoal(goal)">save</button>
+						<button class="update-button" (click)="removeGoal(goal.id)">
+							delete
+						</button>
+					</div>
+				</td>
 			</tr>
 		</tbody>
 	</table>
